@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Shortener</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .header {
+            padding: 20px;
+            background-color: #007BFF;
+            color: #fff;
+        }
+        .container {
+            margin: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 28px;
+        }
+        h2 {
+            font-size: 18px;
+            color: #007BFF;
+        }
+        input[type="url"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #e6dede;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #131e29;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0300b3;
+        }
+        #shortened-url {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Welcome to Our URL Shortener</h1>
+    <h2>Turn long URLs into short and easy-to-share links.</h2>
+</div>
+<div class="container">
+    <form action="/shorten" method="post">
+        <label for="url">Enter the URL to shorten:</label>
+        <input type="url" name="url" id="url" placeholder="https://example.com">
+        <br>
+        <button type="submit">Shorten</button>
+    </form>
+    <div id="shortened-url">
+        {% if short_url %}
+        Shortened URL: <a href="{{ short_url }}">{{ short_url }}</a>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>
